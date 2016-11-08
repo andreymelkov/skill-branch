@@ -18,4 +18,36 @@ router.get('/task2A', function(req, res, next) {
 
 });
 
+router.get('/task2B', function(req, res, next) {
+    var fullName = "", name = "";
+    if(req.query.fullName){
+        fullName = req.query.fullName;
+        var arr = fullName.split(" ");
+
+        if(arr.length > 3){
+            console.log('Invalid full name');
+            res.sendStatus(500);
+        }else if(arr.length == 3){
+            name = arr[2] + " " + arr[0].substring(0, 1) + ". " + arr[1].substring(0, 1)+ ".";
+            console.log(name);
+            res.sendStatus(200);
+        }else if(arr.length == 2){
+            name = arr[1] + " " + arr[0].substring(0, 1) + ".";
+            console.log(name);
+            res.sendStatus(200);
+        }else if(arr.length == 1){
+            name = arr[0];
+            console.log(name);
+            res.sendStatus(200);
+        }else{
+            console.log('Invalid full name');
+            res.sendStatus(500);
+        }
+    }else{
+        console.log('Invalid full name');
+        res.sendStatus(500);
+    }
+
+});
+
 module.exports = router;
