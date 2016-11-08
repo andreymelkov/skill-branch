@@ -14,7 +14,8 @@ router.get('/task2A', function(req, res, next) {
     var sum = a + b;
 
     console.log(sum);
-    
+    res.send(200);
+
 });
 
 module.exports = router;
