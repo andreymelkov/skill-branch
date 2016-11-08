@@ -20,8 +20,8 @@ router.get('/task2A', function(req, res, next) {
 
 router.get('/task2B', function(req, res, next) {
     var fullName = "", name = "";
-    if(req.query.fullName){
-        fullName = req.query.fullName;
+    if(req.query.fullname){
+        fullName = req.query.fullname;
         var arr = fullName.split(" ");
 
         if(arr.length > 3){
