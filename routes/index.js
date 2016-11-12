@@ -50,4 +50,22 @@ router.get('/task2B', function(req, res, next) {
 
 });
 
+router.get('/task2C', function(req, res, next) {
+    var url = "";
+
+    if(req.query.username) {
+        url = req.query.username;
+        var reg = new RegExp('@?(https?:)?(\/\/)?((telegram|vk|vkontakte)[^\/]*\/)?([a-zA-Z0-9]*)', 'i');
+        var result = url.match(reg);
+        if(result[5] == undefined){
+            console.log('Invalid username');
+        }else{
+            console.log(result[5]);
+        }
+    }
+
+    res.send(200);
+
+});
+
 module.exports = router;
