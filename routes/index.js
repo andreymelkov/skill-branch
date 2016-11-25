@@ -64,7 +64,27 @@ router.get('/task2C', function(req, res, next) {
         }
     }
 
-    res.send(200);
+    res.sendStatus(200);
+
+});
+
+router.get('/task2D', function(req, res, next) {
+    var url = "";
+
+    if(req.query.color) {
+        var color = "#"+req.query.color;
+        var reg = new RegExp('^#[0-9A-F]{6}$', 'i');
+        var result = color.match(reg);
+
+        if(result != null){
+            console.log(result[0]);
+        }else{
+            console.log("Invalid color");
+        }
+
+    }
+
+    res.sendStatus(200);
 
 });
 
